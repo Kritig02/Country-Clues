@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,6 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="sectionIndexBackgroundColor" red="0.95250970125198364" green="0.80774837732315063" blue="0.85254961252212524" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="customCell" rowHeight="95" id="82h-ZL-Tzq" customClass="CustomTableViewCell" customModule="Country_Clues" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="393" height="95"/>
@@ -62,6 +64,48 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0VJ-Zt-oE3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="524.4274809160305" y="-6.3380281690140849"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="Iac-3B-z5S">
+            <objects>
+                <viewController storyboardIdentifier="Detail" id="b69-tE-5fz" customClass="DetailViewController" customModule="Country_Clues" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HlX-NA-vEw">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bOT-kN-gLl">
+                                <rect key="frame" x="51.666666666666657" y="122" width="290" height="160"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="290" id="CqU-OK-KzO"/>
+                                    <constraint firstAttribute="height" constant="160" id="szz-ht-Mob"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="funFacts" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MGb-da-cYU">
+                                <rect key="frame" x="36" y="329" width="321" height="453"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="64y-El-GiA"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bOT-kN-gLl" firstAttribute="top" secondItem="64y-El-GiA" secondAttribute="top" constant="63" id="82C-Ji-P9W"/>
+                            <constraint firstItem="64y-El-GiA" firstAttribute="bottom" secondItem="MGb-da-cYU" secondAttribute="bottom" constant="36" id="Ata-2S-7dv"/>
+                            <constraint firstItem="64y-El-GiA" firstAttribute="trailing" secondItem="MGb-da-cYU" secondAttribute="trailing" constant="36" id="M3V-ea-FtC"/>
+                            <constraint firstItem="MGb-da-cYU" firstAttribute="top" secondItem="bOT-kN-gLl" secondAttribute="bottom" constant="47" id="NWU-L9-RFO"/>
+                            <constraint firstItem="bOT-kN-gLl" firstAttribute="centerX" secondItem="64y-El-GiA" secondAttribute="centerX" id="RGb-rs-IWN"/>
+                            <constraint firstItem="MGb-da-cYU" firstAttribute="leading" secondItem="64y-El-GiA" secondAttribute="leading" constant="36" id="k2M-6l-QdO"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="flagImage" destination="bOT-kN-gLl" id="2eh-hh-TNH"/>
+                        <outlet property="funFacts" destination="MGb-da-cYU" id="oIY-Se-iCa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tnM-Ax-gpR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1310.6870229007634" y="-6.3380281690140849"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GtN-Rb-ely">
