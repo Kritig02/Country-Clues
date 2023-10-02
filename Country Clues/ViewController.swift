@@ -44,6 +44,7 @@ class ViewController: UITableViewController {
         title = "Country Clues"
         navigationController?.navigationBar.prefersLargeTitles = true
         countryCount = countryHints.count
+        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -71,15 +72,14 @@ class ViewController: UITableViewController {
        guard let ac = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController else {
             fatalError("DetailViewController dosen't exists!")
         }
-        //let countryName = countryHints[indexPath.row].0
         ac.countrySelected = indexPath.row
-        present(ac, animated: true)
+        let vc = UINavigationController(rootViewController: ac)
+        present(vc, animated: true)
     }
 }
 
 class CustomTableViewCell : UITableViewCell {
     @IBOutlet var countryImage: UIImageView!
-    @IBOutlet var countryHint: UILabel!
-    
+    @IBOutlet var countryHint: UILabel!    
 }
 

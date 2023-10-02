@@ -42,11 +42,19 @@ class DetailViewController: UIViewController {
             ("Turkey", "Turkey straddles two continents, Europe and Asia, with Istanbul as a city on both sides. The country is famous for its cuisine, including kebabs, baklava, and Turkish delight. Turkey has a rich history, with landmarks like Hagia Sophia and the ancient city of Troy. The traditional Turkish bath, or 'hamam,' is a cultural experience."),
             ("United States", "The United States is home to the world's largest ball of twine, located in Cawker City, Kansas, and it continues to grow as people add to it.")
         ]
-
+        title = facts[countrySelected].0
         flagImage.image = UIImage(named: "\(facts[countrySelected].0)")
         funFacts.text = facts[countrySelected].1
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(closeTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
+    }
+    @objc func closeTapped(){
+        dismiss(animated: true)
     }
     
-
-
+    @objc func shareTapped(){
+        let ac = UIActivityViewController(activityItems: [flagImage.image!, facts[countrySelected].0], applicationActivities: [])
+        ac.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        present(ac, animated: true)
+    }
 }
