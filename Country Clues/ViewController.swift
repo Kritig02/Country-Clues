@@ -14,31 +14,31 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    countryHints = [
-            ("Germany", "Known for sausages, beer, and the Berlin Wall."),
-            ("United States", "Home to the Statue of Liberty and jazz music."),
+        countryHints = [
             ("Argentina", "Known for tango, steaks, and the Andes Mountains."),
-            ("Canada", "The second-largest country in the world."),
-            ("Finland", "Known for its lakes, forests, and cold winters."),
-            ("Italy", "The country of pasta, pizza, and art."),
-            ("Philippines", "An archipelago known for beautiful beaches."),
             ("Belgium", "Famous for chocolate, waffles, and beer."),
-            ("Pakistan", "Located in South Asia, known for its diverse culture."),
             ("Bhutan", "Nestled in the Himalayas, known for monasteries."),
-            ("Iceland", "An island nation with stunning landscapes."),
-            ("Kenya", "Rich in wildlife and famous for safaris."),
-            ("South Korea", "Known for K-pop, kimchi, and technological innovation."),
-            ("Japan", "Land of the rising sun with a rich cultural heritage."),
-            ("Mexico", "Famous for tacos, tequila, and ancient ruins."),
-            ("Malaysia", "A Southeast Asian nation with diverse culture."),
-            ("India", "Home to the Taj Mahal and Bollywood."),
-            ("Switzerland", "Known for Swiss watches and chocolate."),
-            ("Ireland", "Home to leprechauns and St. Patrick's Day."),
-            ("Sweden", "Home to Vikings and the capital is Stockholm."),
-            ("Turkey", "Famous for its Ottoman Empire history."),
+            ("Canada", "The second-largest country in the world."),
+            ("Egypt", "Located in North Africa and known for the Great Pyramid."),
+            ("Finland", "Known for its lakes, forests, and cold winters."),
+            ("Germany", "Known for sausages, beer, and the Berlin Wall."),
             ("Greece", "European Union member with Athens as its capital."),
+            ("Iceland", "An island nation with stunning landscapes."),
+            ("India", "Home to the Taj Mahal and Bollywood."),
+            ("Ireland", "Home to leprechauns and St. Patrick's Day."),
+            ("Italy", "The country of pasta, pizza, and art."),
+            ("Japan", "Land of the rising sun with a rich cultural heritage."),
+            ("Kenya", "Rich in wildlife and famous for safaris."),
             ("Lebanon", "Located in the Middle East and known for its cedars."),
-            ("Egypt", "Located in North Africa and known for the Great Pyramid.")
+            ("Malaysia", "A Southeast Asian nation with diverse culture."),
+            ("Mexico", "Famous for tacos, tequila, and ancient ruins."),
+            ("Pakistan", "Located in South Asia, known for its diverse culture."),
+            ("Philippines", "An archipelago known for beautiful beaches."),
+            ("South Korea", "Known for K-pop, kimchi, and technological innovation."),
+            ("Sweden", "Home to Vikings and the capital is Stockholm."),
+            ("Switzerland", "Known for Swiss watches and chocolate."),
+            ("Turkey", "Famous for its Ottoman Empire history."),
+            ("United States", "Home to the Statue of Liberty and jazz music.")
         ]
         
         title = "Country Clues"
@@ -65,6 +65,15 @@ class ViewController: UITableViewController {
     
     override func didReceiveMemoryWarning() {
         fatalError("Memory warning recived")
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       guard let ac = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController else {
+            fatalError("DetailViewController dosen't exists!")
+        }
+        //let countryName = countryHints[indexPath.row].0
+        ac.countrySelected = indexPath.row
+        present(ac, animated: true)
     }
 }
 
